@@ -26,9 +26,9 @@ void setup(){
   background(0);
    
   //background stars
-  stars = new ArrayList();
+  Stars = new ArrayList();
   for(int i = 1; i <= width; i++){
-    stars.add(new star());
+    Stars.add(new star());
   }
  
   
@@ -43,8 +43,8 @@ void draw(){
    
   //background stars
   for(int i = 0; i <= stars.size()-1; i++){
-    star starUse = (star) stars.get(i);
-    starUse.display();
+    Star starUse = (star) stars.get(i);
+    StarUse.display();
   }
 
    drawPlayer();
