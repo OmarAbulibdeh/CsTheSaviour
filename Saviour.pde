@@ -9,8 +9,8 @@ float score = 0;
 String message = "Please, Do Try Again If You Had Fun :) ";
 boolean isCollided = false; // detects the collison between the Meteordrops and the player
 boolean lost = true;
+ArrayList stars;
 Meteor[] Meteor;
-
 
 void fallingMeteor(int xMin, int xMax, int yMin, int yMax, int num){
   Meteor = new Meteor[num];
@@ -22,14 +22,31 @@ void fallingMeteor(int xMin, int xMax, int yMin, int yMax, int num){
   }
 }
 void setup(){
-  size(1280,720);
+  fullScreen();
+  background(0);
+   
+  //background stars
+  stars = new ArrayList();
+  for(int i = 1; i <= width; i++){
+    stars.add(new star());
+  }
+ 
+  
  fallingMeteor(-100, width + 20, -250, -80, difficulty);  // spawning in the Meteordrops
 
   
 }
 
 void draw(){
- background(150); 
+  background(0);
+   background(0);
+   
+  //background stars
+  for(int i = 0; i <= stars.size()-1; i++){
+    star starUse = (star) stars.get(i);
+    starUse.display();
+  }
+
    drawPlayer();
   
   if(!isCollided){      // if the colliosn happens then:
@@ -38,6 +55,7 @@ void draw(){
      fallingMeteor(-100, width + 20, -260, -80, difficulty); difficulty += 10; limit += 20;
     }
   }
+  
  else{
    text("Your Final Score Was: "+(int)score,400, 360);
    println(message);
@@ -95,4 +113,3 @@ void mouseDragged(){
   }
 
 }
- 
