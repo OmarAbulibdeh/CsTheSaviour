@@ -1,9 +1,3 @@
-//Variables 
-int playerXCor = 600;  // cordiantes of the players avatar
-int playerYCor = 590;
-int playerWidth = 55;  // width and height of the players avatar
-int playerHeight = 55;
-int difficulty = 10;  //the higher the diffucluty the more Meteor drops offalling fallings
 int limit = 10;
 float score = 0;
 String message = "Please, Do Try Again If You Had Fun :) ";
@@ -26,9 +20,9 @@ void setup(){
   background(0);
    
   //background stars
-  Stars = new ArrayList();
+  stars = new ArrayList();
   for(int i = 1; i <= width; i++){
-    Stars.add(new star());
+   stars.add(new Star());
   }
  
   
@@ -43,8 +37,8 @@ void draw(){
    
   //background stars
   for(int i = 0; i <= stars.size()-1; i++){
-    Star starUse = (star) stars.get(i);
-    StarUse.display();
+    Star starUse = (Star) stars.get(i);
+    starUse.display();
   }
 
    drawPlayer();
